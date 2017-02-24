@@ -43,19 +43,7 @@ int Image::CalcDifference(const Image & rhs) const
 	cv::absdiff(image, rhs.image, res);
 	
 	cv::Scalar sum = cv::sum(res);
-	//double sum_test = 0;
 
-	//for (int i = 0; i < res.rows; i += 1) {
-	//	for (int j = 0; j < res.cols; j += 1) {
-	//		//std::cout << res.at<cv::Vec3b>(i, j) << std::endl;
-	//		sum_test += res.at<cv::Vec3b>(i, j)[0];
-	//		sum_test += res.at<cv::Vec3b>(i, j)[1];
-	//		sum_test += res.at<cv::Vec3b>(i, j)[2];
-	//		if (sum_test <= 0) {
-	//			std::cout << "booooooooooom" << std::endl;
-	//		}
-	//	}
-	//}
 	//std::cout << sum << std::endl;
 	return sum[0] + sum[1] + sum[2];
 }

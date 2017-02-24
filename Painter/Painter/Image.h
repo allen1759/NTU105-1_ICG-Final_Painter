@@ -42,6 +42,20 @@ public:
 		// asjdfklasjfakds f;alsdk 
 		return image.at<cv::Vec3b>(y, x);
 	}
+	cv::Vec3f GetColor(int x, int y, int r)
+	{
+		cv::Scalar color = cv::mean(
+			image(cv::Rect(std::max(0, x - r),
+				std::max(0, y - r),
+				std::min(2 * r, image.cols - x - 1),
+				std::min(2 * r, image.rows - y - 1)
+			)));
+		cv::Vec3f col;
+		col[0] = color[0];
+		col[1] = color[1];
+		col[2] = color[2];
+		return col;
+	}
 
 	cv::Mat GetSubImage(cv::Rect range)
 	{
